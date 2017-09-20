@@ -1,24 +1,101 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##  Welcome to IMDbc
 
-Things you may want to cover:
+Our Hawk Set project is a Set card game clone. It's an online solo game that tests your matching and set creation skills.
 
-* Ruby version
+## Core Goals:
 
-* System dependencies
+1. User can create an account
+2. The start of the game displays 9 cards on the board
+3. User must be able to select sets based on the cards displayed on board
+4. The computer must check that a user generated set is in fact a valid set
+5. Computer tracks the number of valid sets a user makes
+6. When the computer determines that there are no more sets add 3 more cards to the board
+7. Have a timer that counts up until the end of the game is over (when the deck is empty and there are no more sets determined by the computer)
+8. Show a statistics page of individual games in aggregate
 
-* Configuration
+## Core Goals:
 
-* Database creation
+1. Visualize the user statistics
+2. Animate cards dealt and removed
+3. Make it multiplayer
 
-* Database initialization
+## Project Management Tool
 
-* How to run the test suite
+[Trello Link](https://trello.com/b/Mp7E2fiV/hawkset-board)
 
-* Services (job queues, cache servers, search engines, etc.)
+## Ruby version
 
-* Deployment instructions
+* Built using Ruby 2.4.1 and Rails 5.1.3
 
-* ...
+## System dependencies
+
+* macOS version (~> 10.1)
+
+* bundler
+
+* Ruby 2.4.1
+
+* Rails 5.1.3
+
+* PostgreSQL 9.6.3
+
+## Configuration
+
+    $ git clone https://github.com/jshopsin/Hawk_Set
+
+    $ cd Hawk_Set
+
+    $ bundle install
+
+    $ rails db:setup
+
+    $ rails server
+
+## Database
+
+The website uses a Postgres database
+
+* postgres (PostgreSQL) 9.6.3
+
+### Database creation
+
+    $ rails db:create
+
+### Database initialization
+
+    $ rails db:migrate
+
+    $ rails db:seed
+
+### Database schema
+
+![alt text](https://raw.githubusercontent.com/jshopsin/hawk-set/development/public/db-schema.png "DB schema")
+
+## Testing
+
+### How to run the test suite
+
+    $ rspec
+
+
+### Other gems / libraries used when testing
+
+* [Capybara](https://github.com/teamcapybara/capybara)
+
+* [FactoryGirl](https://github.com/thoughtbot/factory_girl)
+
+* [Faker](https://github.com/stympy/faker)
+
+* [Warden](https://github.com/hassox/warden/wiki)
+
+## Deployment
+
+* [Heroku](https://...herokuapp.com/)
+
+>https://...herokuapp.com/
+
+## License
+
+HawkSet is released under the [MIT License](https://opensource.org/licenses/MIT).
