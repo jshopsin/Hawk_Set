@@ -1,6 +1,6 @@
 # README
 
-##  Welcome to IMDbc
+##  Welcome to Hawk Set
 
 Our Hawk Set project is a Set card game clone. It's an online solo game that tests your matching and set creation skills.
 
@@ -15,7 +15,7 @@ Our Hawk Set project is a Set card game clone. It's an online solo game that tes
 7. Have a timer that counts up until the end of the game is over (when the deck is empty and there are no more sets determined by the computer)
 8. Show a statistics page of individual games in aggregate
 
-## Core Goals:
+## Stretch Goals:
 
 1. Visualize the user statistics
 2. Animate cards dealt and removed
