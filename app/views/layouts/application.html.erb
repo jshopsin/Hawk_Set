@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <div class="new-game">
+        <%= form_for :game, url: { action: "create" } do |f| %>
+          <%= f.submit 'New Game' %>
+        <% end %>
+      </div>
+    <% end %>
 
     <%= yield %>
   </body>
