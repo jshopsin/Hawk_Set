@@ -10,16 +10,18 @@
 
   <body>
     <div>
-    <% if user_signed_in? %>
-    <%= current_user.username %>
-    <!-- add My Account when its ready (Ikko) -->
-    <a href="/">Home</a>
-    <%= link_to "Logout", destroy_user_session_path, {method: :delete, class: 'butt'} %>
-    <% else %>
-    <a href="/"></a>
-    <a href="/users/sign_in">Login</a>
-    <% end %>
+      <% if user_signed_in? %>
+        <%= current_user.username %>
+        <%= link_to "Home", root_path %>
+        <!-- THIS NEEDS TO GO TO 'USER_PATH' WHEN ITS READY -->
+        <%= link_to "My Account" %>
+        <%= link_to "Logout", destroy_user_session_path, {method: :delete} %>
+      <% else %>
+        <%= link_to "Login", user_session_path %>
+        <%= link_to "Register", new_user_registration_path %>
+      <% end %>
     </div>
+    <h1>Hawk Set</h1>
     <%= yield %>
   </body>
 </html>
