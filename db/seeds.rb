@@ -1,6 +1,24 @@
 u = User.create!(username: "jen", email: "jen@jen.com", password: "password")
 
-c = Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
+Card.create!(shape: "oval", color: "red", shade: "solid", number: 1)
 
 g = u.games.create!
 
