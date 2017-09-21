@@ -6,11 +6,20 @@ Our Hawk Set project is a Set card game clone. It's an online solo game that tes
 
 Goal: Race against the clock to select as many valid sets as you can, as quickly as possible.
 
- Card Attributes: Color, Shape, Shading, and Shape Count.
+ Card Attributes: 
+ 
+    Color: red, green, or purple
+ 
+    Shape: dog, cat, or fish
+ 
+    Shading: filled, empty, or striped
+ 
+    Shape Count: 1, 2, or 3
+ 
 
  How to Make a Set:
-  1) Select three cards with no matching attributes.
-  2) Select three cards with as many matching attributes as you want, BUT that attribute must be present across all three selected cards.
+   1) Select three cards with no matching attributes.
+   2) Select three cards with as many matching attributes as you want, BUT that attribute must be present across all three selected cards.
 
  Rule #1: A set can not contain only two cards with a matching attribute. All three cards must have that attribute or only one may have it.
 
