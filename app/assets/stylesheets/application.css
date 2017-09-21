@@ -18,15 +18,29 @@ body {
 }
 
 .board {
-  width: 70%;
+  width: 60%;
   float: left;
+  background: silver;
+  border: 5px solid midnightblue;
+  padding: 30px;
+  padding-top: 60px;
+  padding-left: 60px;
+  align-items: center;
+  justify-content: center;
 }
 
 .sets-played {
   display: inline-block;
   width: 27%;
-  height: 610px;
-  background-color: gray;
-  border: solid black 2px;
+  height: 726px;
+  background-color: aliceblue;
+  border-top: solid midnightblue 5px;
+  border-right: solid midnightblue 5px;
+  border-bottom: solid midnightblue 5px;
   padding-left: 20px;
+}
+
+.active {
+  border: 3px solid brown;
+  border-radius: 12px;
 }
