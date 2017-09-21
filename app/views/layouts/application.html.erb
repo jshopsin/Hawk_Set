@@ -9,7 +9,17 @@
   </head>
 
   <body>
-
+    <div>
+    <% if user_signed_in? %>
+    <%= current_user.username %>
+    <!-- add My Account when its ready (Ikko) -->
+    <a href="/">Home</a>
+    <%= link_to "Logout", destroy_user_session_path, {method: :delete, class: 'butt'} %>
+    <% else %>
+    <a href="/"></a>
+    <a href="/users/sign_in">Login</a>
+    <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
