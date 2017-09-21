@@ -1,0 +1,11 @@
+<div class="board">
+  <% @board.each do |assignment| %>
+    <div class="card-in-play">
+      <%= image_tag assignment.card.image_url %>
+    </div>
+  <% end %>
+</div>
+
+<div class="sets-played">
+  <h2>Sets Played:</h2>
+</div>
