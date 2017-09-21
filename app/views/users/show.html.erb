@@ -1,1 +1,15 @@
+<<<<<<< HEAD
+<h1><%= @user.username %>'s Result</h1>
+
+<% @user.games.each do |game| %>
+  <h3><%= game.card_sets.count %> Sets </h3>
+  <h3>in</h3>
+  <h3><%= game.total_play_time %></h3>
+  <div id="found_cards">
+    <%= render 'found_cards' %>
+  </div>
+<% end %>
+
+=======
 <h1>Hi</h1>
+>>>>>>> dfbb19da035146d1b785eabc67b15e0e48cd4f77
