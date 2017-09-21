@@ -5322,6 +5322,7 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/users/1/games/1" for 127.0.0.1 at 2017-09-21 09:27:18 -0700
 Processing by GamesController#show as HTML
   Parameters: {"user_id"=>"1", "id"=>"1"}
@@ -5954,3 +5955,94 @@ Completed 200 OK in 749ms (Views: 660.9ms | ActiveRecord: 21.8ms)
   [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "assignments" SET "card_status" = $1, "card_set_id" = $2, "updated_at" = $3 WHERE "assignments"."id" = $4[0m  [["card_status", "in_set"], ["card_set_id", 1], ["updated_at", "2017-09-21 17:35:57.974823"], ["id", 9]]
   [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
 >>>>>>> 2118504828db9f0714d0f5ad37640ba43154c59f
+=======
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-09-21 10:33:57 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 20.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 10:39:46 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/apprentice/Hawk_Set/app/views/layouts/application.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+...troy_user_session_path, method: :delete );@output_buffer.saf...
+...                               ^):
+  
+app/views/layouts/application.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+Started GET "/" for 127.0.0.1 at 2017-09-21 10:39:49 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/apprentice/Hawk_Set/app/views/layouts/application.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+...troy_user_session_path, method: :delete );@output_buffer.saf...
+...                               ^):
+  
+app/views/layouts/application.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+Started GET "/" for 127.0.0.1 at 2017-09-21 10:40:07 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/apprentice/Hawk_Set/app/views/layouts/application.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+...troy_user_session_path, method: :delete ;@output_buffer.safe...
+...                               ^):
+  
+app/views/layouts/application.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+Started GET "/" for 127.0.0.1 at 2017-09-21 10:40:44 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/apprentice/Hawk_Set/app/views/layouts/application.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+...troy_user_session_path, method: :delete ;@output_buffer.safe...
+...                               ^):
+  
+app/views/layouts/application.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+Started GET "/" for 127.0.0.1 at 2017-09-21 10:45:37 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/apprentice/Hawk_Set/app/views/layouts/application.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+...troy_user_session_path, method: :delete ;@output_buffer.safe...
+...                               ^):
+  
+app/views/layouts/application.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+Started GET "/" for 127.0.0.1 at 2017-09-21 10:45:44 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 10:46:04 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.6ms)
+
+
+>>>>>>> 353b2f5fadf0e93ca9ae1ecb75a7255134d3ef77
