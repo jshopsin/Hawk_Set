@@ -71,7 +71,7 @@ The website uses a Postgres database
 
 ### Database schema
 
-![DB schema](https://github.com/jshopsin/Hawk_Set/blob/master/HawkSet_schema.png)
+![DB schema](https://github.com/jshopsin/Hawk_Set/blob/master/schema.png)
 
 ## Testing
 
