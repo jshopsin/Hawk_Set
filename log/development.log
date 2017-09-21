@@ -1,32 +1,7 @@
-  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (34.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-20 19:25:22.706549"], ["updated_at", "2017-09-20 19:25:22.706549"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Started GET "/" for 127.0.0.1 at 2017-09-20 12:27:44 -0700
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (5.4ms)
-Completed 200 OK in 41ms (Views: 35.9ms | ActiveRecord: 0.0ms)
-
-
 Started GET "/" for 127.0.0.1 at 2017-09-20 12:28:16 -0700
-  
+
 AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
-  
+
 actionpack (5.1.3) lib/abstract_controller/base.rb:119:in `process'
 actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
 actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
@@ -79,9 +54,9 @@ puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
 Started GET "/" for 127.0.0.1 at 2017-09-20 12:28:23 -0700
-  
+
 AbstractController::ActionNotFound (The action 'new' could not be found for UsersController):
-  
+
 actionpack (5.1.3) lib/abstract_controller/base.rb:119:in `process'
 actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
 actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
@@ -147,9 +122,9 @@ Completed 200 OK in 424ms (Views: 398.0ms | ActiveRecord: 4.8ms)
 
 
 Started GET "/users/new" for 127.0.0.1 at 2017-09-20 12:30:03 -0700
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/new"):
-  
+
 actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
 web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
@@ -240,838 +215,19 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 33ms (Views: 31.3ms | ActiveRecord: 0.0ms)
 
 
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (30.0ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "users_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_54efe0af68"
-FOREIGN KEY ("users_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_users_id" ON "games"  ("users_id")[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (24.1ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CardsGamesSets (20170920222624)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "users_id" bigint, "games_id" bigint, "card_sets_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_54efe0af68"
-FOREIGN KEY ("users_id")
-  REFERENCES "users" ("id")
-, CONSTRAINT "fk_rails_640de5ecdc"
-FOREIGN KEY ("games_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_dfadee2230"
-FOREIGN KEY ("card_sets_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (158.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (120.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
-  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170920192336)[0m
-  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-20 22:30:23.185504"], ["updated_at", "2017-09-20 22:30:23.185504"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
-  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170920192336)[0m
-  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-20 22:30:23.295716"], ["updated_at", "2017-09-20 22:30:23.295716"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (123.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (123.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
-  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170920192336)[0m
-  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-20 22:31:36.835720"], ["updated_at", "2017-09-20 22:31:36.835720"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
-  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170920192336)[0m
-  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-20 22:31:36.934336"], ["updated_at", "2017-09-20 22:31:36.934336"]]
-  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "users_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_54efe0af68"
-FOREIGN KEY ("users_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_users_id" ON "games"  ("users_id")[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardsGamesSets (20170920222624)
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "cards_games_sets" ("id" bigserial primary key, "users_id" bigint, "games_id" bigint, "card_sets_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_1eb328a6b4"
-FOREIGN KEY ("users_id")
-  REFERENCES "users" ("id")
-, CONSTRAINT "fk_rails_e4e0ccce96"
-FOREIGN KEY ("games_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_647537d1ae"
-FOREIGN KEY ("card_sets_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_cards_games_sets_on_users_id" ON "cards_games_sets"  ("users_id")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_cards_games_sets_on_games_id" ON "cards_games_sets"  ("games_id")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_cards_games_sets_on_card_sets_id" ON "cards_games_sets"  ("card_sets_id")[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["shape", "oval"], ["color", "red"], ["shade", "solid"], ["number", 1], ["created_at", "2017-09-20 23:02:27.633333"], ["updated_at", "2017-09-20 23:02:27.633333"]]
-  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$p87bc1k2quuvbkzSsBH2mO.kKG4/Sa/B1F37daQYfwSHHQxqJcCGa"], ["created_at", "2017-09-20 23:04:26.882846"], ["updated_at", "2017-09-20 23:04:26.882846"]]
-  [1m[35m (16.0ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (124.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (123.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (112.0ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (65.9ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardsGamesSets (20170920222624)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "cards_games_sets" ("id" bigserial primary key, "user_id" bigint, "game_id" bigint, "card_sets_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_4983192190"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-, CONSTRAINT "fk_rails_a1b021c4d7"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_647537d1ae"
-FOREIGN KEY ("card_sets_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_cards_games_sets_on_user_id" ON "cards_games_sets"  ("user_id")[0m
-  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_cards_games_sets_on_game_id" ON "cards_games_sets"  ("game_id")[0m
-  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_cards_games_sets_on_card_sets_id" ON "cards_games_sets"  ("card_sets_id")[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-20 23:07:44.129287"], ["updated_at", "2017-09-20 23:07:44.129287"]]
-  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["shape", "oval"], ["color", "red"], ["shade", "solid"], ["number", 1], ["created_at", "2017-09-20 23:08:11.886611"], ["updated_at", "2017-09-20 23:08:11.886611"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$g3GmLpkw35s/jFQ7pH51Ku2mFxLuG7XQPAP2xaZxyBPXjnYDquZx2"], ["created_at", "2017-09-20 23:08:42.259042"], ["updated_at", "2017-09-20 23:08:42.259042"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-20 23:08:58.629225"], ["updated_at", "2017-09-20 23:08:58.629225"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (124.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (134.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardsGamesSets (20170920222624)
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateCardGameSets (20170920222624)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "card_game_sets" ("id" bigserial primary key, "user_id" bigint, "game_id" bigint, "card_sets_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d18dee3de8"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-, CONSTRAINT "fk_rails_5b09d8a34b"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_1829ee579a"
-FOREIGN KEY ("card_sets_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_card_game_sets_on_user_id" ON "card_game_sets"  ("user_id")[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_card_game_sets_on_game_id" ON "card_game_sets"  ("game_id")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_card_game_sets_on_card_sets_id" ON "card_game_sets"  ("card_sets_id")[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-20 23:19:04.931234"], ["updated_at", "2017-09-20 23:19:04.931234"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateCardGameSets (20170920222624)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.8ms)[0m  [1m[35mDROP TABLE "card_game_sets"[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170920222624"]]
-  [1m[35m (17.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateCardGameSets (20170920222624)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "card_game_sets" ("id" bigserial primary key, "user_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d18dee3de8"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-, CONSTRAINT "fk_rails_5b09d8a34b"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_5645bb8003"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (24.2ms)[0m  [1m[35mCREATE  INDEX  "index_card_game_sets_on_user_id" ON "card_game_sets"  ("user_id")[0m
-  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_card_game_sets_on_game_id" ON "card_game_sets"  ("game_id")[0m
-  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_card_game_sets_on_card_set_id" ON "card_game_sets"  ("card_set_id")[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mCard Load (0.8ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["shape", "oval"], ["color", "red"], ["shade", "solid"], ["number", 1], ["created_at", "2017-09-20 23:22:14.930310"], ["updated_at", "2017-09-20 23:22:14.930310"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$Q7Mu/H6AV82mQf6c./cuQusj3CP.jSclTeOMozgL5QZ1XKggvULPq"], ["created_at", "2017-09-20 23:22:51.168078"], ["updated_at", "2017-09-20 23:22:51.168078"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["shape", "oval"], ["color", "red"], ["shade", "solid"], ["number", 1], ["created_at", "2017-09-20 23:22:51.203994"], ["updated_at", "2017-09-20 23:22:51.203994"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-20 23:22:51.248561"], ["updated_at", "2017-09-20 23:22:51.248561"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "card_game_sets" ("user_id", "game_id", "card_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["game_id", 1], ["card_status", "in_play"], ["created_at", "2017-09-20 23:27:39.671608"], ["updated_at", "2017-09-20 23:27:39.671608"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mCardGameSet Load (0.3ms)[0m  [1m[34mSELECT  "card_game_sets".* FROM "card_game_sets" ORDER BY "card_game_sets"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mCardGameSet Load (0.5ms)[0m  [1m[34mSELECT  "card_game_sets".* FROM "card_game_sets" ORDER BY "card_game_sets"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "card_game_sets" WHERE "card_game_sets"."id" = $1[0m  [["id", 1]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mCardGameSet Load (0.5ms)[0m  [1m[34mSELECT  "card_game_sets".* FROM "card_game_sets" ORDER BY "card_game_sets"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateCardGameSets (20170920222624)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "cards_games_sets"[0m
-  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (124.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (122.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardGameSets (20170920222624)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "cards_games_sets" ("id" bigserial primary key, "user_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_4983192190"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-, CONSTRAINT "fk_rails_a1b021c4d7"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_2cc8049002"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_cards_games_sets_on_user_id" ON "cards_games_sets"  ("user_id")[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_cards_games_sets_on_game_id" ON "cards_games_sets"  ("game_id")[0m
-  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_cards_games_sets_on_card_set_id" ON "cards_games_sets"  ("card_set_id")[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-20 23:36:13.803361"], ["updated_at", "2017-09-20 23:36:13.803361"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$mf1S16OLYSRE9MHnM.32teh/QBlVjaqtR8LTkDJaj7rWIRuki8EKa"], ["created_at", "2017-09-20 23:36:20.196004"], ["updated_at", "2017-09-20 23:36:20.196004"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["shape", "oval"], ["color", "red"], ["shade", "solid"], ["number", 1], ["created_at", "2017-09-20 23:36:20.236360"], ["updated_at", "2017-09-20 23:36:20.236360"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-20 23:36:20.275014"], ["updated_at", "2017-09-20 23:36:20.275014"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (125.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (122.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateAssignments (20170920222624)
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "user_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_aa6b76dac2"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-, CONSTRAINT "fk_rails_c73d101ebd"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_d5826f5996"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_user_id" ON "assignments"  ("user_id")[0m
-  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_game_id" ON "assignments"  ("game_id")[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_set_id" ON "assignments"  ("card_set_id")[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-20 23:40:11.866695"], ["updated_at", "2017-09-20 23:40:11.866695"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$XfJp6WSIM918qhbmVO6VPetPjBTH2BASU025mTaYiswpldzYRMuvW"], ["created_at", "2017-09-20 23:40:20.423690"], ["updated_at", "2017-09-20 23:40:20.423690"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["shape", "oval"], ["color", "red"], ["shade", "solid"], ["number", 1], ["created_at", "2017-09-20 23:40:20.457508"], ["updated_at", "2017-09-20 23:40:20.457508"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-20 23:40:20.498427"], ["updated_at", "2017-09-20 23:40:20.498427"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateAssignments (20170920222624)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE "assignments"[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170920222624"]]
-  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateAssignments (20170920222624)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "card_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b27756a61a"
-FOREIGN KEY ("card_id")
-  REFERENCES "cards" ("id")
-, CONSTRAINT "fk_rails_c73d101ebd"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_d5826f5996"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_id" ON "assignments"  ("card_id")[0m
-  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_game_id" ON "assignments"  ("game_id")[0m
-  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_set_id" ON "assignments"  ("card_set_id")[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "assignments" ("card_id", "game_id", "card_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["card_id", 1], ["game_id", 1], ["card_status", "in_play"], ["created_at", "2017-09-20 23:46:15.763390"], ["updated_at", "2017-09-20 23:46:15.763390"]]
-  [1m[35m (16.0ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" INNER JOIN "assignments" ON "cards"."id" = "assignments"."card_id" WHERE "assignments"."game_id" = $1 LIMIT $2[0m  [["game_id", 1], ["LIMIT", 11]]
-  [1m[36mAssignment Load (0.4ms)[0m  [1m[34mSELECT  "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 AND "assignments"."card_status" = $2 LIMIT $3[0m  [["game_id", 1], ["card_status", "in_play"], ["LIMIT", 11]]
-  [1m[36mAssignment Load (0.5ms)[0m  [1m[34mSELECT  "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 AND "assignments"."card_status" = $2 LIMIT $3[0m  [["game_id", 1], ["card_status", "in_play"], ["LIMIT", 11]]
-  [1m[36mAssignment Load (0.4ms)[0m  [1m[34mSELECT  "assignments".* FROM "assignments" ORDER BY "assignments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mAssignment Load (0.6ms)[0m  [1m[34mSELECT  "assignments".* FROM "assignments" ORDER BY "assignments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mAssignment Load (0.6ms)[0m  [1m[34mSELECT  "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 AND "assignments"."card_status" = $2 LIMIT $3[0m  [["game_id", 1], ["card_status", "in_play"], ["LIMIT", 11]]
-  [1m[36mAssignment Load (0.5ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 AND "assignments"."card_status" = $2[0m  [["game_id", 1], ["card_status", "in_play"]]
-  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateAssignments (20170920222624)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "card_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b27756a61a"
-FOREIGN KEY ("card_id")
-  REFERENCES "cards" ("id")
-, CONSTRAINT "fk_rails_c73d101ebd"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_d5826f5996"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_id" ON "assignments"  ("card_id")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_game_id" ON "assignments"  ("game_id")[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_set_id" ON "assignments"  ("card_set_id")[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-21 03:42:33.222047"], ["updated_at", "2017-09-21 03:42:33.222047"]]
-  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$Y3fKzUqFWbikIdvnEkXaher7iFQjAHuDJM/ARhnBC9AFqof2nAGXe"], ["created_at", "2017-09-21 03:44:20.264370"], ["updated_at", "2017-09-21 03:44:20.264370"]]
-  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["shape", "oval"], ["color", "red"], ["shade", "solid"], ["number", 1], ["created_at", "2017-09-21 03:44:20.282053"], ["updated_at", "2017-09-21 03:44:20.282053"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-21 03:44:20.310527"], ["updated_at", "2017-09-21 03:44:20.310527"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[36mAssignment Load (0.9ms)[0m  [1m[34mSELECT  "assignments".* FROM "assignments" LIMIT $1[0m  [["LIMIT", 11]]
-  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" LIMIT $1[0m  [["LIMIT", 11]]
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards"[0m
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
-  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (21.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (21.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (16.7ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateAssignments (20170920222624)
-  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "card_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b27756a61a"
-FOREIGN KEY ("card_id")
-  REFERENCES "cards" ("id")
-, CONSTRAINT "fk_rails_c73d101ebd"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_d5826f5996"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_id" ON "assignments"  ("card_id")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_game_id" ON "assignments"  ("game_id")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_set_id" ON "assignments"  ("card_set_id")[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-21 05:48:11.916940"], ["updated_at", "2017-09-21 05:48:11.916940"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (6.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mUser Load (18.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
-  [1m[36mCard Load (5.9ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
-  [1m[36mGame Load (11.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (7.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$brqlmxEQNTp9Omi1hrRP/OdgrxD5wtTMMSaoKiNg.0IguUtcmQHdq"], ["created_at", "2017-09-21 05:49:32.601666"], ["updated_at", "2017-09-21 05:49:32.601666"]]
-  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["shape", "cat"], ["color", "green"], ["shade", "empty"], ["number", 1], ["image_url", "cards/cat_green_empty_1.png"], ["created_at", "2017-09-21 05:49:32.633727"], ["updated_at", "2017-09-21 05:49:32.633727"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (23.1ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-21 05:49:32.676295"], ["updated_at", "2017-09-21 05:49:32.676295"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" LIMIT $1[0m  [["LIMIT", 11]]
-  [1m[35m (6.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (26.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
-  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (19.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
-  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (207.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (207.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (15.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (11.7ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (16.4ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (6.0ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateAssignments (20170920222624)
-  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "card_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b27756a61a"
-FOREIGN KEY ("card_id")
-  REFERENCES "cards" ("id")
-, CONSTRAINT "fk_rails_c73d101ebd"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_d5826f5996"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_id" ON "assignments"  ("card_id")[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_game_id" ON "assignments"  ("game_id")[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_set_id" ON "assignments"  ("card_set_id")[0m
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-21 06:01:32.677975"], ["updated_at", "2017-09-21 06:01:32.677975"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
-  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
-  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$6qk05cbOthQGRhIRV9NIn.crOVRmpv9VlW7woRMRN5SjjeavFovtW"], ["created_at", "2017-09-21 06:01:39.291326"], ["updated_at", "2017-09-21 06:01:39.291326"]]
-  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["shape", "cat"], ["color", "green"], ["shade", "empty"], ["number", 1], ["image_url", "cards/cat_green_empty_1.png"], ["created_at", "2017-09-21 06:01:39.314352"], ["updated_at", "2017-09-21 06:01:39.314352"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-21 06:01:39.348228"], ["updated_at", "2017-09-21 06:01:39.348228"]]
-  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "assignments" ("card_id", "game_id", "card_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["card_id", 1], ["game_id", 1], ["card_status", "in_play"], ["created_at", "2017-09-21 06:01:39.389645"], ["updated_at", "2017-09-21 06:01:39.389645"]]
-  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
-Started GET "/" for 127.0.0.1 at 2017-09-20 23:01:57 -0700
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  
-ActionController::RoutingError (uninitialized constant WelcomeController):
-  
-activesupport (5.1.3) lib/active_support/inflector/methods.rb:269:in `const_get'
-activesupport (5.1.3) lib/active_support/inflector/methods.rb:269:in `block in constantize'
-activesupport (5.1.3) lib/active_support/inflector/methods.rb:267:in `each'
-activesupport (5.1.3) lib/active_support/inflector/methods.rb:267:in `inject'
-activesupport (5.1.3) lib/active_support/inflector/methods.rb:267:in `constantize'
-actionpack (5.1.3) lib/action_dispatch/http/request.rb:82:in `controller_class'
-actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:43:in `controller'
-actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-20 18:41:54 -0700
+
+AbstractController::ActionNotFound (The action 'index' could not be found for WelcomeController):
+
+actionpack (5.1.3) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
 actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
 actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
 actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
@@ -1091,37 +247,12 @@ activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
 actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
 actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
 actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
-web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
-web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
-web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
-actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
-sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
-actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
-rack (2.0.3) lib/rack/method_override.rb:22:in `call'
-rack (2.0.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
-actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
-rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
-railties (5.1.3) lib/rails/engine.rb:522:in `call'
-puma (3.10.0) lib/puma/configuration.rb:225:in `call'
-puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
-puma (3.10.0) lib/puma/server.rb:437:in `process_client'
-puma (3.10.0) lib/puma/server.rb:301:in `block in run'
-puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
 Started GET "/games/1" for 127.0.0.1 at 2017-09-20 23:02:03 -0700
-  
+
 ActionController::RoutingError (No route matches [GET] "/games/1"):
-  
+
 actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+
 web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
 web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
@@ -1148,24 +279,17 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/users/1/games/1" for 127.0.0.1 at 2017-09-20 23:02:22 -0700
-Processing by GamesController#show as HTML
-  Parameters: {"user_id"=>"1", "id"=>"1"}
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering games/show.html.erb within layouts/application
-  [1m[36mAssignment Load (0.8ms)[0m  [1m[34mSELECT  "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 AND "assignments"."card_status" = $2 LIMIT $3[0m  [["game_id", 1], ["card_status", "in_play"], ["LIMIT", 11]]
-  Rendered games/show.html.erb within layouts/application (27.9ms)
-Completed 500 Internal Server Error in 127ms (ActiveRecord: 13.5ms)
 
 
-  
+
+
+
 ActionView::Template::Error (undefined method `cards' for #<Assignment::ActiveRecord_AssociationRelation:0x007ff098873aa8>):
     1: <% @board.cards.each do |card| %>
     2:   <div class="card-in-play">
     3:     <img id="card-image" src="<%=card.image_url%> " alt="Add grey question image">
     4:   </div>
-  
+
 app/views/games/show.html.erb:1:in `_app_views_games_show_html_erb__667351703945833319_70335662291240'
   [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT  "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mAssignment Load (0.6ms)[0m  [1m[34mSELECT  "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 LIMIT $2[0m  [["game_id", 1], ["LIMIT", 11]]
@@ -1183,9 +307,9 @@ Completed 200 OK in 958ms (Views: 862.0ms | ActiveRecord: 18.8ms)
 
 
 Started GET "/users/1/games/cards/cat_green_empty_1.png" for 127.0.0.1 at 2017-09-20 23:05:21 -0700
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/1/games/cards/cat_green_empty_1.png"):
-  
+
 actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
 web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
@@ -1213,102 +337,36 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (185.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (205.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (15.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (5.7ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (6.7ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (21.3ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateAssignments (20170920222624)
-  [1m[35m (5.7ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "card_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b27756a61a"
-FOREIGN KEY ("card_id")
-  REFERENCES "cards" ("id")
-, CONSTRAINT "fk_rails_c73d101ebd"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_d5826f5996"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_id" ON "assignments"  ("card_id")[0m
-  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_game_id" ON "assignments"  ("game_id")[0m
-  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_set_id" ON "assignments"  ("card_set_id")[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-21 06:06:05.562818"], ["updated_at", "2017-09-21 06:06:05.562818"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
-  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
-  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$6XuPYwTrfjJTQzWSl0UL8Oaj45/O4kNAQDRVEd.UiwhfFcH9Vat/a"], ["created_at", "2017-09-21 06:06:12.360513"], ["updated_at", "2017-09-21 06:06:12.360513"]]
-  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["shape", "cat"], ["color", "green"], ["shade", "empty"], ["number", 1], ["image_url", "/cards/cat_green_empty_1.png"], ["created_at", "2017-09-21 06:06:12.383621"], ["updated_at", "2017-09-21 06:06:12.383621"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-21 06:06:12.423543"], ["updated_at", "2017-09-21 06:06:12.423543"]]
-  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "assignments" ("card_id", "game_id", "card_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["card_id", 1], ["game_id", 1], ["card_status", "in_play"], ["created_at", "2017-09-21 06:06:12.488835"], ["updated_at", "2017-09-21 06:06:12.488835"]]
-  [1m[35m (15.9ms)[0m  [1m[35mCOMMIT[0m
-Started GET "/users/1/games/1" for 127.0.0.1 at 2017-09-20 23:06:27 -0700
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by GamesController#show as HTML
-  Parameters: {"user_id"=>"1", "id"=>"1"}
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering games/show.html.erb within layouts/application
-  [1m[36mAssignment Load (0.9ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 AND "assignments"."card_status" = $2[0m  [["game_id", 1], ["card_status", "in_play"]]
-  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered games/show.html.erb within layouts/application (51.0ms)
-Completed 200 OK in 704ms (Views: 616.6ms | ActiveRecord: 19.6ms)
 
 
-Started GET "/cards/cat_green_empty_1.png" for 127.0.0.1 at 2017-09-20 23:06:28 -0700
-  
-ActionController::RoutingError (No route matches [GET] "/cards/cat_green_empty_1.png"):
-  
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+
 actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
 web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
@@ -1336,358 +394,13 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (2.5ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 1]]
-  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (162.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (202.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (16.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (5.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (6.8ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (5.7ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateAssignments (20170920222624)
-  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (16.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "card_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b27756a61a"
-FOREIGN KEY ("card_id")
-  REFERENCES "cards" ("id")
-, CONSTRAINT "fk_rails_c73d101ebd"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_d5826f5996"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_id" ON "assignments"  ("card_id")[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_game_id" ON "assignments"  ("game_id")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_set_id" ON "assignments"  ("card_set_id")[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-21 06:07:50.425873"], ["updated_at", "2017-09-21 06:07:50.425873"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
-  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
-  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$i1Q21oMv82veubrZ.E2a2OcE6i2SmIPD6ylVxKMdwOESjhJA7JrY."], ["created_at", "2017-09-21 06:07:57.786641"], ["updated_at", "2017-09-21 06:07:57.786641"]]
-  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["shape", "cat"], ["color", "green"], ["shade", "empty"], ["number", 1], ["image_url", "images/cards/cat_green_empty_1.png"], ["created_at", "2017-09-21 06:07:57.811354"], ["updated_at", "2017-09-21 06:07:57.811354"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-21 06:07:57.841726"], ["updated_at", "2017-09-21 06:07:57.841726"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "assignments" ("card_id", "game_id", "card_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["card_id", 1], ["game_id", 1], ["card_status", "in_play"], ["created_at", "2017-09-21 06:07:57.874728"], ["updated_at", "2017-09-21 06:07:57.874728"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-Started GET "/users/1/games/1" for 127.0.0.1 at 2017-09-20 23:08:07 -0700
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by GamesController#show as HTML
-  Parameters: {"user_id"=>"1", "id"=>"1"}
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering games/show.html.erb within layouts/application
-  [1m[36mAssignment Load (0.9ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 AND "assignments"."card_status" = $2[0m  [["game_id", 1], ["card_status", "in_play"]]
-  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered games/show.html.erb within layouts/application (54.3ms)
-Completed 200 OK in 707ms (Views: 622.6ms | ActiveRecord: 18.2ms)
 
-
-Started GET "/users/1/games/images/cards/cat_green_empty_1.png" for 127.0.0.1 at 2017-09-20 23:08:07 -0700
-  
-ActionController::RoutingError (No route matches [GET] "/users/1/games/images/cards/cat_green_empty_1.png"):
-  
-actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
-web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
-web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
-web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
-actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
-sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
-actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
-rack (2.0.3) lib/rack/method_override.rb:22:in `call'
-rack (2.0.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
-actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
-rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
-railties (5.1.3) lib/rails/engine.rb:522:in `call'
-puma (3.10.0) lib/puma/configuration.rb:225:in `call'
-puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
-puma (3.10.0) lib/puma/server.rb:437:in `process_client'
-puma (3.10.0) lib/puma/server.rb:301:in `block in run'
-puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (152.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (195.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (25.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (20.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (5.5ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (17.3ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (12.5ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateAssignments (20170920222624)
-  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (21.2ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "card_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b27756a61a"
-FOREIGN KEY ("card_id")
-  REFERENCES "cards" ("id")
-, CONSTRAINT "fk_rails_c73d101ebd"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_d5826f5996"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_id" ON "assignments"  ("card_id")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_game_id" ON "assignments"  ("game_id")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_set_id" ON "assignments"  ("card_set_id")[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-21 06:10:43.204372"], ["updated_at", "2017-09-21 06:10:43.204372"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mUser Load (18.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
-  [1m[36mCard Load (2.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
-  [1m[36mGame Load (12.8ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$std7GPrl/RL.WV876sa02u2Z28YvDnlwbWWweYL9GxYKilG9uS5cq"], ["created_at", "2017-09-21 06:10:49.330021"], ["updated_at", "2017-09-21 06:10:49.330021"]]
-  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["shape", "cat"], ["color", "green"], ["shade", "empty"], ["number", 1], ["image_url", "cat_green_empty_1.png"], ["created_at", "2017-09-21 06:10:49.352788"], ["updated_at", "2017-09-21 06:10:49.352788"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-21 06:10:49.395601"], ["updated_at", "2017-09-21 06:10:49.395601"]]
-  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (25.3ms)[0m  [1m[32mINSERT INTO "assignments" ("card_id", "game_id", "card_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["card_id", 1], ["game_id", 1], ["card_status", "in_play"], ["created_at", "2017-09-21 06:10:49.438927"], ["updated_at", "2017-09-21 06:10:49.438927"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Started GET "/users/1/games/1" for 127.0.0.1 at 2017-09-20 23:10:59 -0700
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by GamesController#show as HTML
-  Parameters: {"user_id"=>"1", "id"=>"1"}
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering games/show.html.erb within layouts/application
-  [1m[36mAssignment Load (1.1ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 AND "assignments"."card_status" = $2[0m  [["game_id", 1], ["card_status", "in_play"]]
-  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered games/show.html.erb within layouts/application (51.3ms)
-Completed 200 OK in 784ms (Views: 681.8ms | ActiveRecord: 17.9ms)
-
-
-Started GET "/users/1/games/cat_green_empty_1.png" for 127.0.0.1 at 2017-09-20 23:11:00 -0700
-Processing by GamesController#show as PNG
-  Parameters: {"user_id"=>"1", "id"=>"cat_green_empty_1"}
-  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mGame Load (4.0ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
-Completed 404 Not Found in 9ms (ActiveRecord: 5.6ms)
-
-
-  
-ActiveRecord::RecordNotFound (Couldn't find Game with 'id'=cat_green_empty_1):
-  
-app/controllers/games_controller.rb:4:in `show'
-Started GET "/users/1/games/1" for 127.0.0.1 at 2017-09-20 23:12:50 -0700
-Processing by GamesController#show as HTML
-  Parameters: {"user_id"=>"1", "id"=>"1"}
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering games/show.html.erb within layouts/application
-  [1m[36mAssignment Load (1.0ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 AND "assignments"."card_status" = $2[0m  [["game_id", 1], ["card_status", "in_play"]]
-  [1m[36mCard Load (1.0ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered games/show.html.erb within layouts/application (11.0ms)
-Completed 200 OK in 121ms (Views: 110.6ms | ActiveRecord: 2.7ms)
-
-
-Started GET "/users/1/games/cat_green_empty_1.png" for 127.0.0.1 at 2017-09-20 23:12:50 -0700
-Processing by GamesController#show as PNG
-  Parameters: {"user_id"=>"1", "id"=>"cat_green_empty_1"}
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
-Completed 404 Not Found in 5ms (ActiveRecord: 1.4ms)
-
-
-  
-ActiveRecord::RecordNotFound (Couldn't find Game with 'id'=cat_green_empty_1):
-  
-app/controllers/games_controller.rb:4:in `show'
-  [1m[35m (7.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (205.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (182.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (16.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (5.9ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (15.8ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (11.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateAssignments (20170920222624)
-  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (19.6ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "card_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b27756a61a"
-FOREIGN KEY ("card_id")
-  REFERENCES "cards" ("id")
-, CONSTRAINT "fk_rails_c73d101ebd"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_d5826f5996"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_id" ON "assignments"  ("card_id")[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_game_id" ON "assignments"  ("game_id")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_set_id" ON "assignments"  ("card_set_id")[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-21 06:15:41.103875"], ["updated_at", "2017-09-21 06:15:41.103875"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
-  [1m[36mCard Load (1.0ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
-  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$UkasUYcIs71o5Y2m66Ge4e7jpVH7EiYXMoePhiTv6Z8sii9wLkk9."], ["created_at", "2017-09-21 06:15:46.416005"], ["updated_at", "2017-09-21 06:15:46.416005"]]
-  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["shape", "cat"], ["color", "green"], ["shade", "empty"], ["number", 1], ["image_url", "../app/assets/images/cat_green_empty_1.png"], ["created_at", "2017-09-21 06:15:46.438734"], ["updated_at", "2017-09-21 06:15:46.438734"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-21 06:15:46.475560"], ["updated_at", "2017-09-21 06:15:46.475560"]]
-  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "assignments" ("card_id", "game_id", "card_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["card_id", 1], ["game_id", 1], ["card_status", "in_play"], ["created_at", "2017-09-21 06:15:46.512706"], ["updated_at", "2017-09-21 06:15:46.512706"]]
-  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
-Started GET "/users/1/games/1" for 127.0.0.1 at 2017-09-20 23:15:56 -0700
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by GamesController#show as HTML
-  Parameters: {"user_id"=>"1", "id"=>"1"}
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering games/show.html.erb within layouts/application
-  [1m[36mAssignment Load (0.9ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 AND "assignments"."card_status" = $2[0m  [["game_id", 1], ["card_status", "in_play"]]
-  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered games/show.html.erb within layouts/application (55.2ms)
-Completed 200 OK in 1051ms (Views: 964.3ms | ActiveRecord: 18.7ms)
 
 
 Started GET "/users/1/app/assets/images/cat_green_empty_1.png" for 127.0.0.1 at 2017-09-20 23:15:58 -0700
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/1/app/assets/images/cat_green_empty_1.png"):
-  
+
 actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
 web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
@@ -1714,103 +427,13 @@ puma (3.10.0) lib/puma/configuration.rb:225:in `call'
 puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
-puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (182.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (196.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (9.8ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (4.6ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (6.5ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (15.4ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (29.9ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateAssignments (20170920222624)
-  [1m[35m (6.5ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (18.7ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "card_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b27756a61a"
-FOREIGN KEY ("card_id")
-  REFERENCES "cards" ("id")
-, CONSTRAINT "fk_rails_c73d101ebd"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_d5826f5996"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_id" ON "assignments"  ("card_id")[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_game_id" ON "assignments"  ("game_id")[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_set_id" ON "assignments"  ("card_set_id")[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-21 06:17:32.702608"], ["updated_at", "2017-09-21 06:17:32.702608"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
-  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
-  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$qUkhiyo0KaaB3oGL8EEV1.lR1A.5I6sjbswzRIAdLlyCi1idh4FTi"], ["created_at", "2017-09-21 06:17:38.675671"], ["updated_at", "2017-09-21 06:17:38.675671"]]
-  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["shape", "cat"], ["color", "green"], ["shade", "empty"], ["number", 1], ["image_url", "/Users/jennifershopsin/Desktop/DBC/phase-3b/Hawk_Set/app/assets/images/cat_green_empty_1.png"], ["created_at", "2017-09-21 06:17:38.700759"], ["updated_at", "2017-09-21 06:17:38.700759"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-21 06:17:38.726276"], ["updated_at", "2017-09-21 06:17:38.726276"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "assignments" ("card_id", "game_id", "card_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["card_id", 1], ["game_id", 1], ["card_status", "in_play"], ["created_at", "2017-09-21 06:17:38.753228"], ["updated_at", "2017-09-21 06:17:38.753228"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-Started GET "/users/1/games/1" for 127.0.0.1 at 2017-09-20 23:17:48 -0700
-  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by GamesController#show as HTML
-  Parameters: {"user_id"=>"1", "id"=>"1"}
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering games/show.html.erb within layouts/application
-  [1m[36mAssignment Load (0.9ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 AND "assignments"."card_status" = $2[0m  [["game_id", 1], ["card_status", "in_play"]]
-  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered games/show.html.erb within layouts/application (45.7ms)
-Completed 200 OK in 745ms (Views: 656.2ms | ActiveRecord: 19.2ms)
+
 
 
 Started GET "/Users/jennifershopsin/Desktop/DBC/phase-3b/Hawk_Set/app/assets/images/cat_green_empty_1.png" for 127.0.0.1 at 2017-09-20 23:17:49 -0700
-  
+
 ActionController::RoutingError (No route matches [GET] "/Users/jennifershopsin/Desktop/DBC/phase-3b/Hawk_Set/app/assets/images/cat_green_empty_1.png"):
-  
+
 actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
 web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
@@ -1837,103 +460,11 @@ puma (3.10.0) lib/puma/configuration.rb:225:in `call'
 puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
-puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (369.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_development"[0m
-  [1m[35m (194.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "hawk_set_test"[0m
-  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1423646849297217720)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20170920192336)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (15.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920192336"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateGames (20170920222225)
-  [1m[35m (5.8ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "total_play_time" integer, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_de9e6ea7f7"
-FOREIGN KEY ("user_id")
-  REFERENCES "users" ("id")
-)[0m
-  [1m[35m (5.9ms)[0m  [1m[35mCREATE  INDEX  "index_games_on_user_id" ON "games"  ("user_id")[0m
-  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222225"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCards (20170920222318)
-  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (15.5ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "shape" character varying, "color" character varying, "shade" character varying, "number" integer, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222318"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCardSets (20170920222456)
-  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "card_sets" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222456"]]
-  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateAssignments (20170920222624)
-  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (17.8ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "card_id" bigint, "game_id" bigint, "card_set_id" bigint, "card_status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b27756a61a"
-FOREIGN KEY ("card_id")
-  REFERENCES "cards" ("id")
-, CONSTRAINT "fk_rails_c73d101ebd"
-FOREIGN KEY ("game_id")
-  REFERENCES "games" ("id")
-, CONSTRAINT "fk_rails_d5826f5996"
-FOREIGN KEY ("card_set_id")
-  REFERENCES "card_sets" ("id")
-)[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_id" ON "assignments"  ("card_id")[0m
-  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_game_id" ON "assignments"  ("game_id")[0m
-  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_assignments_on_card_set_id" ON "assignments"  ("card_set_id")[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170920222624"]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-21 06:18:47.975492"], ["updated_at", "2017-09-21 06:18:47.975492"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1423646849297217720)[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
-  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
-  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jen"], ["email", "jen@jen.com"], ["encrypted_password", "$2a$11$9X.DTj0uc5q62062lo1LQuaXYYJbx0cTCRlEf6cFPALVTMBI9hXci"], ["created_at", "2017-09-21 06:18:53.312643"], ["updated_at", "2017-09-21 06:18:53.312643"]]
-  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("shape", "color", "shade", "number", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["shape", "cat"], ["color", "green"], ["shade", "empty"], ["number", 1], ["image_url", "images/cat_green_empty_1.png"], ["created_at", "2017-09-21 06:18:53.335631"], ["updated_at", "2017-09-21 06:18:53.335631"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "games" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2017-09-21 06:18:53.361928"], ["updated_at", "2017-09-21 06:18:53.361928"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "assignments" ("card_id", "game_id", "card_status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["card_id", 1], ["game_id", 1], ["card_status", "in_play"], ["created_at", "2017-09-21 06:18:53.392042"], ["updated_at", "2017-09-21 06:18:53.392042"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-Started GET "/users/1/games/1" for 127.0.0.1 at 2017-09-20 23:19:03 -0700
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by GamesController#show as HTML
-  Parameters: {"user_id"=>"1", "id"=>"1"}
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering games/show.html.erb within layouts/application
-  [1m[36mAssignment Load (1.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."game_id" = $1 AND "assignments"."card_status" = $2[0m  [["game_id", 1], ["card_status", "in_play"]]
-  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendered games/show.html.erb within layouts/application (46.3ms)
-Completed 200 OK in 711ms (Views: 623.0ms | ActiveRecord: 16.6ms)
-
 
 Started GET "/users/1/games/images/cat_green_empty_1.png" for 127.0.0.1 at 2017-09-20 23:19:04 -0700
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/1/games/images/cat_green_empty_1.png"):
-  
+
 actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
 web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
@@ -1960,6 +491,7 @@ puma (3.10.0) lib/puma/configuration.rb:225:in `call'
 puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+<<<<<<< HEAD
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
@@ -2061,9 +593,9 @@ Processing by GamesController#show as PNG
 Completed 404 Not Found in 6ms (ActiveRecord: 1.9ms)
 
 
-  
+
 ActiveRecord::RecordNotFound (Couldn't find Game with 'id'=cat_green_empty_1):
-  
+
 app/controllers/games_controller.rb:4:in `show'
 Started GET "/users/1/games/1" for 127.0.0.1 at 2017-09-20 23:22:08 -0700
 Processing by GamesController#show as HTML
@@ -5516,9 +4048,9 @@ FOREIGN KEY ("card_set_id")
   [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
 Started GET "/" for 127.0.0.1 at 2017-09-21 09:27:06 -0700
   [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  
+
 ActionController::RoutingError (uninitialized constant WelcomeController):
-  
+
 activesupport (5.1.3) lib/active_support/inflector/methods.rb:269:in `const_get'
 activesupport (5.1.3) lib/active_support/inflector/methods.rb:269:in `block in constantize'
 activesupport (5.1.3) lib/active_support/inflector/methods.rb:267:in `each'
@@ -5593,5 +4125,3 @@ Processing by GamesController#show as HTML
   [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
   Rendered games/show.html.erb within layouts/application (637.4ms)
 Completed 200 OK in 749ms (Views: 660.9ms | ActiveRecord: 21.8ms)
-
-
