@@ -1,0 +1,679 @@
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:38:33 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 336ms (Views: 333.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:38:36 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (834.3ms)
+Completed 200 OK in 904ms (Views: 868.6ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:38:38 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 55ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-09-21 11:38:53 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fw0VWrZ+Kl3DakmJuTgQpHmazB1l9siiOtZ/ml4XD/sYXHZXwzKRHnTXf/ZyfiRNQjlAe1rJjlSVL2+LIYd1GQ==", "user"=>{"email"=>"mark@mark.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mark@mark.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "mark@mark.com"], ["encrypted_password", "$2a$11$A3unGdDctzxkXhjPtvK5wO.Sdu0cfVcU1HMBLqGyrEawKpu.2ysPi"], ["created_at", "2017-09-21 18:38:54.054740"], ["updated_at", "2017-09-21 18:38:54.054740"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-09-21 18:38:54.058932"], ["last_sign_in_at", "2017-09-21 18:38:54.058932"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2017-09-21 18:38:54.059837"], ["id", 3]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 222ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:38:54 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:44:43 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 28ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-09-21 11:44:44 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XF1AR/8oIZEg4KlvVeTYxwNo6eLVTAifXyKxg/A5cz9TDCNKimSa0pddnxCeouwuOMtlhOpzTmnw26GSj6kJ3Q=="}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:44:44 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:44:46 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:44:55 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ha+Nb/eicSULyyP6J2nttZdz7f8t0lZnUWrEkJ/CUUeXv/GCgSO5blAyBw5mFHnKUJXQmVARqy1Yfh2oRNArUA==", "user"=>{"email"=>"jen@jen.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2017-09-21 18:44:55.435306"], ["last_sign_in_at", "2017-09-21 18:33:46.306312"], ["sign_in_count", 6], ["updated_at", "2017-09-21 18:44:55.436674"], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 207ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:44:55 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:46:05 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:46:07 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:46:07 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:46:09 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:46:09 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:46:10 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:46:10 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:46:12 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:46:12 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:46:13 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:46:13 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 27ms (Views: 25.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:46:13 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:46:13 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:46:14 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:46:14 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:46:15 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:46:15 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:47:15 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:47:17 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:47:17 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:47:18 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:47:18 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 34ms (Views: 30.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:47:19 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:47:19 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:47:21 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:47:51 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:47:52 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 41ms (Views: 39.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-09-21 11:48:10 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kzpfGUQA63yAg9LGLBxJI4Q6ZHGmLremLFUMEFKjFWISMBWh0ed1ruVvTG2+R1u2Tx4bsTD+iDMiSHrWnCx8VA==", "user"=>{"email"=>"blah@blah.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "blah@blah.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "blah@blah.com"], ["encrypted_password", "$2a$11$ouzzzkug1Yt7E/XR0taCJuhrYjfp7q/vbApwvMSqhhmimB4lBiWsy"], ["created_at", "2017-09-21 18:48:11.089503"], ["updated_at", "2017-09-21 18:48:11.089503"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-09-21 18:48:11.092126"], ["last_sign_in_at", "2017-09-21 18:48:11.092126"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2017-09-21 18:48:11.092752"], ["id", 4]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 198ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:48:11 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:48:23 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:48:27 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-09-21 11:48:36 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8RtiZZ1x3J+WNMdm2x7e7RreMOC4NkEokqaNS4eiraGTY9ILBM2/yc+zUBqr7Ahq9qpeXnF7IwfwMrqGFDYNxQ==", "user"=>{"email"=>"ken@ken.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ken@ken.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "ken@ken.com"], ["encrypted_password", "$2a$11$PW0vCZIdvlWRTyEsq01q8.FKmnYFvANRWzdg0Q335MEGaB./n40o2"], ["created_at", "2017-09-21 18:48:36.771721"], ["updated_at", "2017-09-21 18:48:36.771721"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-09-21 18:48:36.774914"], ["last_sign_in_at", "2017-09-21 18:48:36.774914"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2017-09-21 18:48:36.775641"], ["id", 5]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 195ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:48:36 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:48:44 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:48:44 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:48:45 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:48:45 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:48:46 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:48:46 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:48:47 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:48:47 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:48:47 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:48:47 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:48:48 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:48:48 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:48:48 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:48:48 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:48:48 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:48:48 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:49:14 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:49:27 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:49:29 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:49:34 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IvWKMNASyHpNK5JKgr6++Wv5MDe0fplZMjDBG8UF6Fb4tfJ1ibJUvBhRKa3jUqyVKDu3Hk/3WQHe/DYPp+s1RA==", "user"=>{"email"=>"jen@jen.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2017-09-21 18:49:35.125461"], ["last_sign_in_at", "2017-09-21 18:44:55.435306"], ["sign_in_count", 7], ["updated_at", "2017-09-21 18:49:35.127119"], ["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 203ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:49:35 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:51:11 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 26ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:51:13 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-09-21 11:51:23 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z28yol7CBfnHbA8cVcHxhln6z9PxYmiwa9UGh6ypGdsgCclFmMyeKL1hwF+8Pz8HOlYT5IpxVxmfWKNp5As+xA==", "user"=>{"email"=>"james@james.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "james@james.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "james@james.com"], ["encrypted_password", "$2a$11$VIKz2YtVI6rnY8EjepWLjORwVtx8En/YvfHcwLlLlOJeh6Pnnj1rq"], ["created_at", "2017-09-21 18:51:23.994200"], ["updated_at", "2017-09-21 18:51:23.994200"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-09-21 18:51:23.997077"], ["last_sign_in_at", "2017-09-21 18:51:23.997077"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2017-09-21 18:51:23.997793"], ["id", 6]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 205ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:51:24 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:51:38 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:51:38 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:51:39 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:51:39 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:51:40 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:51:40 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-21 11:51:40 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:51:40 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:51:47 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:52:04 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:52:07 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-09-21 11:52:14 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gGXPvUEp3STODpo7p5f6fSoFuysAexlMv+E84otkBUog3YDfCXbRSR3oAHvE0b/Sar3USTbBo1HxfeCo0lMcBQ==", "user"=>{"email"=>"jen@jen.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "jen@jen.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2017-09-21 18:52:15.111619"], ["last_sign_in_at", "2017-09-21 18:49:35.125461"], ["sign_in_count", 8], ["updated_at", "2017-09-21 18:52:15.112732"], ["id", 1]]
+  [1m[35m (10.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 217ms (ActiveRecord: 11.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:52:15 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:56:34 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 70ms (Views: 60.9ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 11:57:22 -0700
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 65ms (Views: 56.5ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2017-09-21 11:57:23 -0700
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EoVofPxO2UeHvnfoCkFStCzhv6B4X4HAW9i/r+z9XbdgIV8ZcQT6azxYpEhvNQdYXRdOjC55FTBx7yaE7i1SNg==", "commit"=>"New Game"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+Completed 422 Unprocessable Entity in 49ms (ActiveRecord: 5.2ms)
+
+
+  
+ActiveRecord::RecordNotSaved (You cannot call create unless the parent is saved):
+  
+app/controllers/games_controller.rb:20:in `block in create'
+app/controllers/games_controller.rb:19:in `each'
+app/controllers/games_controller.rb:19:in `create'
