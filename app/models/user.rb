@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :games
+  has_many :assignments, through: :games
+  has_many :card_sets, through: :assignments
 end
