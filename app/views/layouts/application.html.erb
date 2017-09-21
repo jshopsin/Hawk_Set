@@ -10,7 +10,7 @@
 
   <body>
 
-    <div class="nav-bar">
+    <div>
       <% if user_signed_in? %>
         <%= current_user.username %>
         <%= link_to "Home", root_path %>
@@ -18,18 +18,12 @@
         <%= link_to "My Account" %>
         <%= link_to "Logout", destroy_user_session_path, {method: :delete} %>
       <% else %>
+        <%= link_to "Logout", destroy_user_session_path, {method: :delete} %>
         <%= link_to "Login", user_session_path %>
         <%= link_to "Register", new_user_registration_path %>
       <% end %>
     </div>
 
-    <div class="new-game">
-      <% if user_signed_in? %>
-        <%= form_for Game.new, url: games_path do |f| %>
-          <%= f.submit 'New Game' %>
-        <% end %>
-      <% end %>
-    </div>
 
     <h1>Hawk Set</h1>
 
