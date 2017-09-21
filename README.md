@@ -7,7 +7,7 @@ Our Hawk Set project is a Set card game clone. It's an online solo game that tes
 ## Core Goals:
 
 1. User can create an account
-2. The start of the game displays 9 cards on the board
+2. The start of the game displays 12 cards on the board
 3. User must be able to select sets based on the cards displayed on board
 4. The computer must check that a user generated set is in fact a valid set
 5. Computer tracks the number of valid sets a user makes
@@ -71,7 +71,7 @@ The website uses a Postgres database
 
 ### Database schema
 
-![DB schema](https://github.com/jshopsin/Hawk_Set/blob/master/HawkSet_schema.png)
+![DB schema](https://github.com/jshopsin/Hawk_Set/blob/master/schema.png)
 
 ## Testing
 
