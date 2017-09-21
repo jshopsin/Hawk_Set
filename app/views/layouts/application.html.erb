@@ -9,7 +9,18 @@
   </head>
 
   <body>
-    <% if current_user %>
+
+    <% if user_signed_in? %>
+      <div class="nav-bar">
+        <%= current_user.username %>
+        <!-- add My Account when its ready (Ikko) -->
+        <a href="/">Home</a>
+        <%= link_to "Logout", destroy_user_session_path, {method: :delete, class: 'butt'} %>
+        <% else %>
+        <a href="/"></a>
+        <a href="/users/sign_in">Login</a>
+      </div>
+
       <div class="new-game">
         <%= form_for :game, url: { action: "create" } do |f| %>
           <%= f.submit 'New Game' %>
