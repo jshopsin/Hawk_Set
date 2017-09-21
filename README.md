@@ -8,13 +8,10 @@ Goal: Race against the clock to select as many valid sets as you can, as quickly
 
  Card Attributes: 
  
-    Color: red, green, or purple
- 
-    Shape: dog, cat, or fish
- 
-    Shading: filled, empty, or striped
- 
-    Shape Count: 1, 2, or 3
+   1) Color: red, green, or purple
+   2) Shape: dog, cat, or fish
+   3) Shading: filled, empty, or striped
+   4) Shape Count: 1, 2, or 3
  
 
  How to Make a Set:
