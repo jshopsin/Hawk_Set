@@ -28,9 +28,9 @@ class CardSetsController < ApplicationController
           end
 
           new_cards_json = {
-            "0": "<%= image_tag #{new_cards[0].card.image_url} %>",
-            "1": "<%= image_tag #{new_cards[1].card.image_url} %>",
-            "2": "<%= image_tag #{new_cards[2].card.image_url} %>"
+            "1": "<img src='../assets/#{new_cards[0].card.image_url}' alt='#{new_cards[0].card.image_url.split(".").first.split("_").join(" ")}'>",
+            "2": "<img src='../assets/#{new_cards[1].card.image_url}' alt='#{new_cards[1].card.image_url.split(".").first.split("_").join(" ")}'>",
+            "3": "<img src='../assets/#{new_cards[2].card.image_url}' alt='#{new_cards[2].card.image_url.split(".").first.split("_").join(" ")}'>"
           }
 
           @response = new_cards_json.to_json

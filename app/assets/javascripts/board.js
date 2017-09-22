@@ -36,16 +36,9 @@ var createSet = function(activeCards) {
 
   request.done(function(response) {
 
-    console.log(activeCards);
-
-    ac = $(activeCards);
-
-    // console.log("Response: " + response["1"]);
-
-    for(var i=0; i < activeCards.length; i++){
-      ac[i].html(response[i.toString()]);
-    }
-
+    $('div').find("img[alt='" + data["cards"]["c1"] + "']").replaceWith(response["1"].toString());
+    $('div').find("img[alt='" + data["cards"]["c2"] + "']").replaceWith(response["2"].toString());
+    $('div').find("img[alt='" + data["cards"]["c3"] + "']").replaceWith(response["3"].toString());
     activeCards.removeClass("active");
   });
 
