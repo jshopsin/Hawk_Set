@@ -11,6 +11,11 @@ body {
   overflow: hidden;
 }
 
+.active {
+  border: 3px solid brown;
+  border-radius: 12px;
+}
+
 .card-in-play {
   display: inline-block;
   width: 20%;
@@ -40,7 +45,4 @@ body {
   padding-left: 20px;
 }
 
-.active {
-  border: 3px solid brown;
-  border-radius: 12px;
-}
+
