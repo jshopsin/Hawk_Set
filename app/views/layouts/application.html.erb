@@ -11,16 +11,17 @@
   <body>
 
     <div>
-      <%= link_to "Home", root_path %>
+
       <% if user_signed_in? %>
-        <%= current_user.username %>
+        <%= "Hello " + current_user.username + "!" %>
         <!-- THIS NEEDS TO GO TO 'USER_PATH' WHEN ITS READY -->
-        <%= link_to "My Account" %>
+        <%= link_to "My Account", current_user %>
         <%= link_to "Logout", destroy_user_session_path, {method: :delete} %>
       <% else %>
         <%= link_to "Login", user_session_path %>
         <%= link_to "Register", new_user_registration_path %>
       <% end %>
+      <%= link_to "Home", root_path %>
     </div>
 
     <div class="new-game" id="start-timer">
