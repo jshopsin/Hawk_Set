@@ -112,9 +112,9 @@ The website uses a Postgres database
 
 ## Deployment
 
-* [Heroku](https://...herokuapp.com/)
+* [Heroku](https://hawk-set.herokuapp.com/)
 
->https://...herokuapp.com/
+>https://hawk-set.herokuapp.com/
 
 ## License
 

@@ -1,20 +1,40 @@
+<% if flash[:alert] %>
+  <div class="notice"><%= flash[:alert] %></div>
+<% end %>
+
 <div class="board">
   <% @board.each do |assignment| %>
     <div class="card-in-play">
       <%= image_tag assignment.card.image_url %>
     </div>
   <% end %>
+
+  <div class="check-board">
+    <%= form_for Game.new, url: game_check_board_path(@game.id) do |f| %>
+      <%= f.submit('No Sets on Board', class: "check-game-button") %>
+    <% end %>
+  </div>
+
+  <div class="sets-played">
+    <h2>Sets Played:</h2>
+    <%= render 'shared/found_cards' %>
+  </div>
 </div>
 
-<div class="container">
-	<div id="timer">00:00</div>
-		<div class="controls">
-		<!-- <div class="btn" id="start">Start</div> -->
-		<div class="btn" id="stop">Stop</div>
-		<!-- <div class="btn" id="reset">Reset</div> -->
-	</div>
-</div>
+<div class="side-bar">
+  <div class="deck-count">
+    <h2><%= @game.assignments.remaining.count %></h2>
+    <h3>Cards Remaining</h3>
+    <h3>in the Deck</h3>
+  </div>
+  <div class="timer-box">
+    <div id="timer">00:00</div>
+      <!-- <div class="controls"> -->
+      <!-- <div class="btn" id="start">Start</div> -->
+      <div class="btn" id="stop">Stop</div>
+      <!-- <div class="btn" id="reset">Reset</div> -->
+    </div>
+  </div>
 
-<div class="sets-played">
-  <h2>Sets Played:</h2>
+
 </div>

@@ -15,6 +15,8 @@ $(document).ready(function() {
 
 var createSet = function(activeCards) {
 
+  var deckCount = parseInt($(".deck-count").find("h2")[0].innerHTML);
+
   var data = {
     cards: {
       c1: activeCards[0].alt,
@@ -39,10 +41,17 @@ var createSet = function(activeCards) {
     $('div').find("img[alt='" + data["cards"]["c1"] + "']").replaceWith(response["1"].toString());
     $('div').find("img[alt='" + data["cards"]["c2"] + "']").replaceWith(response["2"].toString());
     $('div').find("img[alt='" + data["cards"]["c3"] + "']").replaceWith(response["3"].toString());
+
+    $(".sets-played").append("<div class='card-sets'>" + response['set_1'] + response['set_2'] + response['set_3'] + "</div>")
+
+    $(".deck-count").find("h2").html((deckCount - 3).toString());
+
+
     activeCards.removeClass("active");
   });
 
   request.fail(function(response) {
-    console.error("Fail")
+    activeCards.removeClass("active");
+    alert("Not a valid set");
   })
 };
