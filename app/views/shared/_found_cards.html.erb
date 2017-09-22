@@ -1,0 +1,14 @@
+<!-- @game = Game.find_by_user_id(current_user.id) -->
+<% @game = Game.first %>
+<% @game.card_sets.each do |set| %>
+  <% set.cards.pluck(:image_url).each_slice(3) do |img| %>
+    <table>
+      <tr>
+        <td> <%=image_tag img[0], size: "50" %></td>
+        <td> <%=image_tag img[1], size: "50" %></td>
+        <td> <%=image_tag img[2], size: "50" %></td>
+      </tr>
+    </table>
+  <% end %>
+<% end %>
+
