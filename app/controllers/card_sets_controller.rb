@@ -27,8 +27,15 @@ class CardSetsController < ApplicationController
             assignment.update(card_status: "in_play")
           end
 
-          game_path(game.id)
-          return "ppp"
+          new_cards_json = {
+            "0": "<%= image_tag #{new_cards[0].card.image_url} %>",
+            "1": "<%= image_tag #{new_cards[1].card.image_url} %>",
+            "2": "<%= image_tag #{new_cards[2].card.image_url} %>"
+          }
+
+          @response = new_cards_json.to_json
+
+          render json: @response
         else
           redirect_to game_path(game.id)
           flash.now[:alert] = 'Not a valid set'

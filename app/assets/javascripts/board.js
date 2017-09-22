@@ -22,8 +22,10 @@ var createSet = function(activeCards) {
       c3: activeCards[2].alt
     }
   }
+
   var method = "post";
-  var url = "/games/24/card_sets";
+  var current_url = window.location.pathname
+  var url = current_url + "/card_sets";
 
   var request = $.ajax({
     url: url,
@@ -33,8 +35,21 @@ var createSet = function(activeCards) {
   });
 
   request.done(function(response) {
-    activeCards.removeClass("active");
+
     console.log(activeCards);
-    console.log(response);
+
+    ac = $(activeCards);
+
+    // console.log("Response: " + response["1"]);
+
+    for(var i=0; i < activeCards.length; i++){
+      ac[i].html(response[i.toString()]);
+    }
+
+    activeCards.removeClass("active");
   });
+
+  request.fail(function(response) {
+    console.error("Fail")
+  })
 };
