@@ -10,29 +10,29 @@
 
   <body>
 
-    <div>
-
-      <% if user_signed_in? %>
-        <%= "Hello " + current_user.username + "!" %>
-        <!-- THIS NEEDS TO GO TO 'USER_PATH' WHEN ITS READY -->
-        <%= link_to "My Account", current_user %>
-        <%= link_to "Logout", destroy_user_session_path, {method: :delete} %>
-      <% else %>
-        <%= link_to "Login", user_session_path %>
-        <%= link_to "Register", new_user_registration_path %>
-      <% end %>
-      <%= link_to "Home", root_path %>
-    </div>
-
-    <div class="new-game" id="start-timer">
-      <% if current_user %>
-        <%= form_for Game.new, url: games_path do |f| %>
-          <%= f.submit 'New Game' %>
+    <header>
+      <ul class="nav">
+        <li><%= link_to image_tag("logo.png", border: 0, class: "logo"), root_path %></li>
+        <% if user_signed_in? %>
+          <!-- THIS NEEDS TO GO TO 'USER_PATH' WHEN ITS READY -->
+          <li><%= link_to "Logout", destroy_user_session_path, {method: :delete} %></li>
+          <li><%= link_to current_user.username, current_user %></li>
+        <% else %>
+          <li><%= link_to "Login", user_session_path %></li>
+          <li><%= link_to "Register", new_user_registration_path %></li>
         <% end %>
-      <% end %>
-    </div>
 
-    <h1>Hawk Set</h1>
+        <div class="new-game" id="start-timer">
+          <% if current_user %>
+            <li>
+              <%= form_for Game.new, url: games_path do |f| %>
+                <%= f.submit('New Game', class: "new-game-button") %>
+              <% end %>
+            </li>
+          <% end %>
+        </div>
+      </ul>
+    </header>
 
     <%= yield %>
   </body>

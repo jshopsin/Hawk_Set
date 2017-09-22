@@ -15,20 +15,18 @@
       <!-- <div class="btn" id="reset">Reset</div> -->
     </div>
   </div>
-
   <div class="sets-played">
     <h2>Sets Played:</h2>
-    <% @game = Game.find_by_user_id(current_user.id) %>
-      <% @game.card_sets.each do |set| %>
-        <% set.cards.pluck(:image_url).each_slice(3) do |img| %>
-          <table>
-            <tr>
-              <td> <%= image_tag img[0], class: "img_set_card" %></td>
-              <td> <%= image_tag img[1], class: "img_set_card" %></td>
-              <td> <%= image_tag img[2], class: "img_set_card" %></td>
-            </tr>
-          </table>
-        <% end %>
+    <% @game.card_sets.each do |set| %>
+      <% set.cards.pluck(:image_url).each_slice(3) do |img| %>
+        <table>
+          <tr>
+            <td> <%= image_tag img[0], class: "img_set_card" %></td>
+            <td> <%= image_tag img[1], class: "img_set_card" %></td>
+            <td> <%= image_tag img[2], class: "img_set_card" %></td>
+          </tr>
+        </table>
       <% end %>
+    <% end %>
   </div>
 </div>

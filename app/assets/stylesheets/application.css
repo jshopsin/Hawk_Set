@@ -38,7 +38,6 @@ body {
 .side-bar {
   display: inline-block;
   width: 30%;
-  height: 726px;
   background-color: hsl(120, 0%, 80%);
   border-top: solid midnightblue 5px;
   border-right: solid midnightblue 5px;
@@ -50,8 +49,15 @@ body {
 
 .sets-played {
   padding-top: 20px;
+  display: block;
+  width: 20%;
+}
+
+.card-sets img {
   display: inline-block;
-  width: 50%;
+  max-width: 50px;
+  width: 20%;
+  padding-bottom: 20px;
 }
 
 .img_set_card {
@@ -62,9 +68,8 @@ body {
 }
 
 .timer-box {
-  display: block;
-  float: left;
   margin: 60px auto;
+  margin-left: 20px;
   width: 270px;
   text-align: center;
 }
@@ -97,8 +102,64 @@ body {
   margin-left: 15px;
 }
 
-.card-sets img {
+
+.nav {
+  justify-content: flex-start;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: hsl(120, 0%, 10%);
+  border: solid midnightblue 5px;
+  border-bottom: none;
+  width: 100%;
+  font-size: 25px;
+  box-sizing: border-box;
+}
+
+.nav li {
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  height: 200px;
+}
+
+.nav li a {
+  color: white;
+  vertical-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav li:hover {
+  background-color: hsl(120, 0%, 20%);
+}
+
+.nav li:last-child {
+  float: right;
+  padding-right: 10px;
+  min-width: 300px;
+}
+
+.logo {
+  height: 100%;
+}
+
+.new-game-button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
   display: inline-block;
-  width: 20%;
-  padding-bottom: 20px;
+  font-size: 25px;
+  font-weight: bold;
 }
