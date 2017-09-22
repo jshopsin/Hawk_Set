@@ -23,45 +23,55 @@ body {
 }
 
 .board {
-  width: 60%;
+  width: 70%;
   float: left;
-  background: silver;
+  background: hsl(120, 0%, 60%);
   border: 5px solid midnightblue;
+  border-bottom: none;
   padding: 30px;
   padding-top: 60px;
   padding-left: 60px;
-  align-items: center;
-  justify-content: center;
+  box-sizing: border-box;
+  min-height: 1200px;
+}
+
+.side-bar {
+  display: inline-block;
+  width: 30%;
+  height: 726px;
+  background-color: hsl(120, 0%, 80%);
+  border-top: solid midnightblue 5px;
+  border-right: solid midnightblue 5px;
+  border-bottom: none;
+  padding-left: 60px;
+  box-sizing: border-box;
+  min-height: 1200px;
 }
 
 .sets-played {
-  display: inline-block;
-  width: 27%;
-  height: 726px;
-  background-color: aliceblue;
-  border-top: solid midnightblue 5px;
-  border-right: solid midnightblue 5px;
-  border-bottom: solid midnightblue 5px;
-  padding-left: 20px;
+  padding-top: 20px;
+  display: block;
+  width: 50%;
 }
 
-/*.container {
-  margin: 20px auto;
+.timer-box {
+  display: block;
+  float: left;
+  margin: 60px auto;
   width: 270px;
-  background: #fff;
-  padding: 15px;
   text-align: center;
-}*/
+}
 
-/*#timer {
-  background: #ddd;
+#timer {
+  background: midnightblue;
+  color: white;
   height: 120px;
   line-height: 120px;
   font-size: 40px;
-  margin-bottom: 15px;
 }
-*/
+
 .btn {
+  visibility: hidden;
   cursor: pointer;
   font-weight: bold;
   width: 80px;
@@ -79,4 +89,3 @@ body {
 .btn + .btn {
   margin-left: 15px;
 }
-
