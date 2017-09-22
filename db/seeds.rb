@@ -139,3 +139,10 @@ end
 deck.each do |card|
   g.assignments.create!(card_id: card.id, card_status: "remaining")
 end
+
+test_set = CardSet.create()
+
+Assignment.first.update(card_set_id: 1)
+Assignment.second.update(card_set_id: 1)
+Assignment.third.update(card_set_id: 1)
+
