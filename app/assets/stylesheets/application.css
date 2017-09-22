@@ -1,14 +1,16 @@
 body {
   width: 80%;
   margin: auto;
-  padding-top: 20px;
   font-family: arial;
+  background-color: hsl(126, 48%, 32%);
 }
 
-.card-in-play img {
-  max-width: 120px;
-  width: 100%;
-  overflow: hidden;
+.container {
+  padding: 60px;
+  background-color: hsl(120, 0%, 60%);
+  border: 5px solid midnightblue;
+  min-height: 1200px;
+  vertical-align: top;
 }
 
 .active {
@@ -22,53 +24,88 @@ body {
   padding-bottom: 20px;
 }
 
+.card-in-play img {
+  max-width: 120px;
+  width: 100%;
+  overflow: hidden;
+}
+
 .board {
-  width: 60%;
+  width: 70%;
   float: left;
-  background: silver;
-  border: 5px solid midnightblue;
-  padding: 30px;
-  padding-top: 60px;
+  background: hsl(120, 0%, 60%);
+  padding: 0px;
+  padding-top: 0px;
   padding-left: 60px;
-  align-items: center;
-  justify-content: center;
+  min-height: 1200px;
+  box-sizing: border-box;
+}
+
+.side-bar {
+  display: inline-block;
+  width: 30%;
+  background-color: hsl(120, 0%, 80%);
+  border: solid midnightblue 5px;
+  padding-left: 60px;
+  min-height: 620px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.side-bar h3, h2 {
+  text-indent: -60px;
+  font-size: 20px;
+}
+
+.side-bar h2 {
+  color: midnightblue;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.side-bar h3 {
+  color: slategray;
 }
 
 .sets-played {
+  margin-left: 60px;
+  padding-top: 20px;
   display: inline-block;
-  width: 27%;
-  height: 726px;
-  background-color: aliceblue;
-  border-top: solid midnightblue 5px;
-  border-right: solid midnightblue 5px;
-  border-bottom: solid midnightblue 5px;
-  padding-left: 20px;
 }
 
 .card-sets img {
   display: inline-block;
-  width: 20%;
+  max-width: 50px;
+  width: auto;
   padding-bottom: 20px;
 }
 
+.img_set_card {
+  display: block;
+  margin: auto;
+  max-width: 50px;
+  width: auto;
+}
 
-/*.container {
-  margin: 20px auto;
-  width: 270px;
-  background: #fff;
-  padding: 15px;
+.timer-box {
+  margin: 60px auto;
+  margin-left: 30px;
+  width: 200px;
+  max-height: 60px;
   text-align: center;
-}*/
+}
 
-/*#timer {
-  background: #ddd;
+#timer {
+  background: midnightblue;
+  color: white;
   height: 120px;
   line-height: 120px;
   font-size: 40px;
-  margin-bottom: 15px;
+  box-shadow: inset 0 0 20px #000000;
 }
-*/
+
 .btn {
+  visibility: hidden;
   cursor: pointer;
   font-weight: bold;
   width: 80px;
@@ -85,4 +122,89 @@ body {
 
 .btn + .btn {
   margin-left: 15px;
+}
+
+.nav {
+  justify-content: flex-start;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: hsl(120, 0%, 10%);
+  border: solid midnightblue 5px;
+  border-bottom: none;
+  width: 100%;
+  font-size: 25px;
+  box-sizing: border-box;
+}
+
+.nav li {
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  height: 200px;
+}
+
+.nav li a {
+  color: white;
+  vertical-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav li:hover {
+  background-color: hsl(120, 0%, 20%);
+}
+
+.nav li:last-child {
+  float: right;
+  padding-right: 10px;
+  min-width: 300px;
+}
+
+.logo {
+  height: 100%;
+}
+
+.new-game-button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 60px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.check-game-button {
+  background: hsl(120, 0%, 80%);
+  border: none;
+  border-radius: 10px;
+  color: midnightblue;
+  min-width: 640px;
+  margin-top: 20px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 8px 8px 2px hsl(120, 0%, 20%);
+}
+
+.notice {
+  color: maroon;
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 60px;
 }

@@ -31,4 +31,15 @@ class GamesController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def check_board
+    @game = Game.find(params[:game_id])
+
+    if @game.update_board
+      redirect_to game_path(@game)
+    else
+      flash[:alert] = "There are valid sets on the board. Keep trying!"
+      redirect_to game_path(@game)
+    end
+  end
 end

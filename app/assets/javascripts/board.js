@@ -15,6 +15,8 @@ $(document).ready(function() {
 
 var createSet = function(activeCards) {
 
+  var deckCount = parseInt($(".deck-count").find("h2")[0].innerHTML);
+
   var data = {
     cards: {
       c1: activeCards[0].alt,
@@ -41,6 +43,8 @@ var createSet = function(activeCards) {
     $('div').find("img[alt='" + data["cards"]["c3"] + "']").replaceWith(response["3"].toString());
 
     $(".sets-played").append("<div class='card-sets'>" + response['set_1'] + response['set_2'] + response['set_3'] + "</div>")
+
+    $(".deck-count").find("h2").html((deckCount - 3).toString());
 
 
     activeCards.removeClass("active");
