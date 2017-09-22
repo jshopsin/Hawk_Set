@@ -3,68 +3,79 @@ class Game < ApplicationRecord
   has_many :assignments
   has_many :cards, through: :assignments
   has_many :card_sets, through: :assignments
+  scope :remaining, -> { where(card_status: 'remaining') }
+  scope :in_play, -> { where(card_status: 'in_play') }
+  scope :in_set, -> { where(card_status: 'in_set') }
 
+  ATTRS = ["shape", "color", "shade", "number"]
 
-  def check_for_possible_sets
+  # No cards left in deck and no sets available
+  def over?
+    self.assignments.remaining.count == 0 && !sets_available?
+  end
+
+  # call this when you press the button to check for sets
+  def update_board
     if !sets_available?
       add_three_cards
+      return true
+    else
+      return false
     end
   end
 
+  # checks remaining cards and update 1st 3 to in_play
   def add_three_cards
-    cards = []
-    cards << Game.assigments.remaining.pop(3)
+    cards = self.assignments.remaining.first(3)
     cards.each do |card|
       card.update_attribute(:card_status, "in_play")
-      Game.assignments.push(card)
     end
   end
 
   def sets_available?
-    # this will not work because it's dependent on 3 cards
-    # we need to collectively work on this, as this is the most
-    # difficult logic of the game.
-    # We need a method that checks each individual card against all of the other
-    # cards.
-    match(board) ? true : false
-  end
-
-  # Edgar, this is unfinished, but could be used for determining if a 
-  # users' 3 cards have a match
-  def match(cards)
-    case
-    when shape_match?(cards) && color_match?(cards) && !shade_match?(cards)
-      return false
-    when shape_match?(cards) && shade_match?(cards) && !color_match?(cards)
-      return false
-    when shape_match?(cards) && number_match?(cards) && !color_match?(cards)
-      return false
-    when shape_match?(cards) && image_match?(cards) && !color_match?(cards)
-      return false
-    else
-      return true
+    # sets all possible combos
+    combos = combos(self.assignments.in_play)
+    # goes thu each set of possible cards
+    combos.each do |assign_set|
+      cards = []
+      # goes through each assigned_set of possible cards
+      assign_set.each do |assign|
+        # adds the actual cards to a cards array
+        # we now have an array of actual cards to check
+        cards << assign.card
+      end
+      return true if match(cards)
     end
+    false
   end
 
-  # Here is a collection of methods to determine if there is a match among
-  # 3 cards
-  def shape_match?(cards)
-    return true if cards[0].shape == cards[1].shape && cards[2].shape == cards[1]
+  # returns all possible 3 card combos
+  def combos(cards)
+    cards.to_a.combination(3).to_a
   end
 
-  def color_match?(cards)
-    return true if cards[0].color == cards[1].color && cards[2].color == cards[1].color
+  def match(cards)
+    # loops through the attributes
+    ATTRS.each do |attr|
+      return false if !attr_set?(cards, attr)
+    end
+    true
   end
 
-  def shade_match?(cards)
-    return true if cards[0].shade == cards[1].shade && cards[2].shade == cards[1].shade
-  end
+  # given an attribute and cards
+  # checks each card for that attribute
+  # pushes the attribute in the array
+  # then checks if they're all the same or different
+  def attr_set?(cards, attr)
+    array = []
+    cards.each do |card|
+      # evalutes the string 'attr' and returns the value
+      array << card.send(attr)
+    end
 
-  def number_match?(cards)
-    return true if cards[0].number == cards[1].number && cards[2].number == cards[1].number
-  end
-
-  def image_match?(cards)
-    return true if cards[0].image_url == cards[1].image_url && cards[2].image_url == cards[1].image_url
+    # only return true if it's all the same or totally different
+    return true if array.uniq.count == 1
+    return true if array.uniq.count == 3
+    return false
   end
 end
