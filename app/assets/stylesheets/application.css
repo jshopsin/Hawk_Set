@@ -11,6 +11,11 @@ body {
   overflow: hidden;
 }
 
+.active {
+  border: 3px solid brown;
+  border-radius: 12px;
+}
+
 .card-in-play {
   display: inline-block;
   width: 20%;
@@ -18,15 +23,60 @@ body {
 }
 
 .board {
-  width: 70%;
+  width: 60%;
   float: left;
+  background: silver;
+  border: 5px solid midnightblue;
+  padding: 30px;
+  padding-top: 60px;
+  padding-left: 60px;
+  align-items: center;
+  justify-content: center;
 }
 
 .sets-played {
   display: inline-block;
   width: 27%;
-  height: 610px;
-  background-color: gray;
-  border: solid black 2px;
+  height: 726px;
+  background-color: aliceblue;
+  border-top: solid midnightblue 5px;
+  border-right: solid midnightblue 5px;
+  border-bottom: solid midnightblue 5px;
   padding-left: 20px;
 }
+
+/*.container {
+  margin: 20px auto;
+  width: 270px;
+  background: #fff;
+  padding: 15px;
+  text-align: center;
+}*/
+
+/*#timer {
+  background: #ddd;
+  height: 120px;
+  line-height: 120px;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+*/
+.btn {
+  cursor: pointer;
+  font-weight: bold;
+  width: 80px;
+  background: #ddd;
+  height: 45px;
+  line-height: 45px;
+  float: left;
+  user-select: none;
+}
+
+/*.controls {
+  overflow: hidden;
+}*/
+
+.btn + .btn {
+  margin-left: 15px;
+}
+
