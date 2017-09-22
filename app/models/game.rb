@@ -13,58 +13,55 @@ class Game < ApplicationRecord
 
   def add_three_cards
     cards = []
-    cards << Game.assigments.remaining.pop(3)
+    cards << self.assigments.remaining.pop(3)
     cards.each do |card|
       card.update_attribute(:card_status, "in_play")
-      Game.assignments.push(card)
+      self.assignments.push(card)
     end
   end
 
-  def sets_available?
-    # this will not work because it's dependent on 3 cards
-    # we need to collectively work on this, as this is the most
-    # difficult logic of the game.
-    # We need a method that checks each individual card against all of the other
-    # cards.
-    match(board) ? true : false
+  def sets_available?(cards)
+    combos = combos(cards)
+    combos.each do |card_set|
+      return true if match(card_set)
+    end
+    false
   end
 
-  # Edgar, this is unfinished, but could be used for determining if a 
-  # users' 3 cards have a match
+  def combos(cards)
+    cards.to_a.combination(3).to_a
+  end
+
   def match(cards)
-    case
-    when shape_match?(cards) && color_match?(cards) && !shade_match?(cards)
-      return false
-    when shape_match?(cards) && shade_match?(cards) && !color_match?(cards)
-      return false
-    when shape_match?(cards) && number_match?(cards) && !color_match?(cards)
-      return false
-    when shape_match?(cards) && image_match?(cards) && !color_match?(cards)
-      return false
-    else
-      return true
+    ATTRS.each do |attr|
+      return false if !attr_set?(cards, attr)
     end
+    true
   end
 
-  # Here is a collection of methods to determine if there is a match among
-  # 3 cards
-  def shape_match?(cards)
-    return true if cards[0].shape == cards[1].shape && cards[2].shape == cards[1]
+  ATTRS = ["shape", "color", "shade", "number"]
+
+  def attr_set?(cards, attr)
+    array = []
+    cards.each do |card|
+      array << card.send(attr)
+    end
+
+    return true if array.uniq.count == 1
+    return true if array.uniq.count == 3
+    return false
   end
 
-  def color_match?(cards)
+  def color_diff?(cards)
     return true if cards[0].color == cards[1].color && cards[2].color == cards[1].color
   end
 
-  def shade_match?(cards)
+  def shade_diff?(cards)
     return true if cards[0].shade == cards[1].shade && cards[2].shade == cards[1].shade
   end
 
-  def number_match?(cards)
+  def number_diff?(cards)
     return true if cards[0].number == cards[1].number && cards[2].number == cards[1].number
   end
 
-  def image_match?(cards)
-    return true if cards[0].image_url == cards[1].image_url && cards[2].image_url == cards[1].image_url
-  end
 end
