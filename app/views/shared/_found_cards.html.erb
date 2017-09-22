@@ -1,5 +1,4 @@
-<!-- @game = Game.find_by_user_id(current_user.id) -->
-<% @game = Game.first %>
+<% @game = Game.find_by_user_id(current_user.id) %>
 <% @game.card_sets.each do |set| %>
   <% set.cards.pluck(:image_url).each_slice(3) do |img| %>
     <table>
