@@ -11,9 +11,11 @@ class CardSetsController < ApplicationController
 
         cards = [card1, card2, card3]
 
-        # if is_set?(cards)
         if @game.match(cards)
+
           new_card_set = CardSet.create!()
+
+          cards_in_new_set = []
 
           cards.each do |card|
             Assignment.find_by_card_id_and_game_id(card.id, @game.id).update(card_status: "in_set", card_set_id: new_card_set.id)
@@ -30,7 +32,10 @@ class CardSetsController < ApplicationController
           new_cards_json = {
             "1": "<img src='../assets/#{new_cards[0].card.image_url}' alt='#{new_cards[0].card.image_url.split(".").first.split("_").join(" ")}'>",
             "2": "<img src='../assets/#{new_cards[1].card.image_url}' alt='#{new_cards[1].card.image_url.split(".").first.split("_").join(" ")}'>",
-            "3": "<img src='../assets/#{new_cards[2].card.image_url}' alt='#{new_cards[2].card.image_url.split(".").first.split("_").join(" ")}'>"
+            "3": "<img src='../assets/#{new_cards[2].card.image_url}' alt='#{new_cards[2].card.image_url.split(".").first.split("_").join(" ")}'>",
+            "set_1": "<img src='../assets/#{params['cards']['c1'].downcase.split(' ').join('_')}' alt='#{params["cards"]["c1"]}'>",
+            "set_2": "<img src='../assets/#{params['cards']['c2'].downcase.split(' ').join('_')}' alt='#{params["cards"]["c2"]}'>",
+            "set_3": "<img src='../assets/#{params['cards']['c3'].downcase.split(' ').join('_')}' alt='#{params["cards"]["c3"]}'>"
           }
 
           @response = new_cards_json.to_json

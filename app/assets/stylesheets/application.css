@@ -50,8 +50,15 @@ body {
 
 .sets-played {
   padding-top: 20px;
-  display: block;
+  display: inline-block;
   width: 50%;
+}
+
+.img_set_card {
+  display: block;
+  margin: auto;
+  max-width: 50px;
+  width: auto;
 }
 
 .timer-box {
@@ -88,4 +95,10 @@ body {
 
 .btn + .btn {
   margin-left: 15px;
+}
+
+.card-sets img {
+  display: inline-block;
+  width: 20%;
+  padding-bottom: 20px;
 }

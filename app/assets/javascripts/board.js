@@ -39,6 +39,10 @@ var createSet = function(activeCards) {
     $('div').find("img[alt='" + data["cards"]["c1"] + "']").replaceWith(response["1"].toString());
     $('div').find("img[alt='" + data["cards"]["c2"] + "']").replaceWith(response["2"].toString());
     $('div').find("img[alt='" + data["cards"]["c3"] + "']").replaceWith(response["3"].toString());
+
+    $(".sets-played").append("<div class='card-sets'>" + response['set_1'] + response['set_2'] + response['set_3'] + "</div>")
+
+
     activeCards.removeClass("active");
   });
 
