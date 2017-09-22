@@ -43,7 +43,7 @@ class CardSetsController < ApplicationController
           render json: @response
         else
           redirect_to game_path(@game.id)
-          flash.now[:alert] = 'Not a valid set'
+          flash.notice = 'Not a valid set'
         end
       }
     end

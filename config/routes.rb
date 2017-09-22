@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   resources :games, only: [] do
     resources :card_sets, only: [:create]
     resources :assignments, only: [:update]
+    post 'check_board', to: 'games#check_board'
   end
+
 end
