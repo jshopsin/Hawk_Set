@@ -36,18 +36,9 @@ var createSet = function(activeCards) {
 
   request.done(function(response) {
 
-    // console.log(response["1"])
-    // console.log(response["2"])
-    // console.log(response["3"])
-
     $('div').find("img[alt='" + data["cards"]["c1"] + "']").replaceWith(response["1"].toString());
     $('div').find("img[alt='" + data["cards"]["c2"] + "']").replaceWith(response["2"].toString());
     $('div').find("img[alt='" + data["cards"]["c3"] + "']").replaceWith(response["3"].toString());
-
-    // for(var i=0; i < activeCards.length; i++){
-    //   activeCards[i].html((response[i.toString()]).toString());
-    // }
-
     activeCards.removeClass("active");
   });
 
