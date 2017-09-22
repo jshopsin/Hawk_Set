@@ -11,6 +11,11 @@ body {
   overflow: hidden;
 }
 
+.active {
+  border: 3px solid brown;
+  border-radius: 12px;
+}
+
 .card-in-play {
   display: inline-block;
   width: 20%;
@@ -38,11 +43,6 @@ body {
   border-right: solid midnightblue 5px;
   border-bottom: solid midnightblue 5px;
   padding-left: 20px;
-}
-
-.active {
-  border: 3px solid brown;
-  border-radius: 12px;
 }
 
 /*.container {
