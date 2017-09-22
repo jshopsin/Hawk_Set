@@ -12,7 +12,7 @@ class CardSetsController < ApplicationController
         cards = [card1, card2, card3]
 
         # if is_set?(cards)
-        if cards.length == 3
+        if game.match(cards)
           new_card_set = CardSet.create!()
 
           cards.each do |card|

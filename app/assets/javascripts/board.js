@@ -43,6 +43,7 @@ var createSet = function(activeCards) {
   });
 
   request.fail(function(response) {
-    console.error("Fail")
+    activeCards.removeClass("active");
+    alert("Not a valid set");
   })
 };
