@@ -23,7 +23,7 @@
       <% end %>
     </div>
 
-    <div class="new-game">
+    <div class="new-game" id="start-timer">
       <% if current_user %>
         <%= form_for Game.new, url: games_path do |f| %>
           <%= f.submit 'New Game' %>
