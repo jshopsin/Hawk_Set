@@ -45,6 +45,13 @@ body {
   padding-left: 20px;
 }
 
+.card-sets img {
+  display: inline-block;
+  width: 20%;
+  padding-bottom: 20px;
+}
+
+
 /*.container {
   margin: 20px auto;
   width: 270px;
@@ -79,4 +86,3 @@ body {
 .btn + .btn {
   margin-left: 15px;
 }
-
