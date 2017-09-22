@@ -27,10 +27,17 @@ class CardSetsController < ApplicationController
             assignment.update(card_status: "in_play")
           end
 
+          # new_cards[0].assignment.card.image_url.slice!(".png")
+          # new_card1 = new_cards[0].split("_").join(" ")
+
+          # new_card_alts = new_cards.map do |assignment|
+          #   assignment.card.image_url.split(".").first.split("_").join(" ")
+          # end
+
           new_cards_json = {
-            "0": "<%= image_tag #{new_cards[0].card.image_url} %>",
-            "1": "<%= image_tag #{new_cards[1].card.image_url} %>",
-            "2": "<%= image_tag #{new_cards[2].card.image_url} %>"
+            "1": "<img src='../assets/#{new_cards[0].card.image_url}' alt='#{new_cards[0].card.image_url.split(".").first.split("_").join(" ")}'>",
+            "2": "<img src='../assets/#{new_cards[1].card.image_url}' alt='#{new_cards[1].card.image_url.split(".").first.split("_").join(" ")}'>",
+            "3": "<img src='../assets/#{new_cards[2].card.image_url}' alt='#{new_cards[2].card.image_url.split(".").first.split("_").join(" ")}'>"
           }
 
           @response = new_cards_json.to_json
