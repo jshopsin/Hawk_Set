@@ -13,7 +13,7 @@ class CardSetsController < ApplicationController
 
         if @game.match(cards)
 
-          new_card_set = CardSet.create!()
+          new_card_set = CardSet.create
 
           cards_in_new_set = []
 
