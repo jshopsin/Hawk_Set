@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :card_sets, only: [:create]
     resources :assignments, only: [:update]
     post 'check_board', to: 'games#check_board'
+    post 'give_hint',   to: 'games#give_hint'
   end
 
 end

@@ -4,14 +4,20 @@
 
 <div class="board">
   <% @board.each do |assignment| %>
-    <div class="card-in-play">
+    <div class="card-in-play" id="<%= assignment.card.id %>">
       <%= image_tag assignment.card.image_url %>
     </div>
   <% end %>
 
   <div class="check-board">
     <%= form_for Game.new, url: game_check_board_path(@game.id) do |f| %>
-      <%= f.submit('No Sets on Board', class: "check-game-button") %>
+      <%= f.submit('Sets on Board?', class: "check-game-button") %>
+    <% end %>
+  </div>
+
+  <div class="add-hint">
+    <%= form_for Game.new, url: game_give_hint_path(@game.id), locals: {card: @card}, remote: true do |f| %>
+      <%= f.submit('Hint', class: "hint-button") %>
     <% end %>
   </div>
 

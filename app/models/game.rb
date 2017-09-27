@@ -3,9 +3,6 @@ class Game < ApplicationRecord
   has_many :assignments
   has_many :cards, through: :assignments
   has_many :card_sets, through: :assignments
-  scope :remaining, -> { where(card_status: 'remaining') }
-  scope :in_play, -> { where(card_status: 'in_play') }
-  scope :in_set, -> { where(card_status: 'in_set') }
 
   ATTRS = ["shape", "color", "shade", "number"]
 
@@ -60,6 +57,21 @@ class Game < ApplicationRecord
       return false if !attr_set?(cards, attr)
     end
     true
+  end
+
+  def hint
+    combos(self.assignments.in_play).each do |combo|
+    end
+    if sets_available?
+      combos = combos(self.assignments.in_play)
+      combos.each do |assign_set|
+        cards = []
+        assign_set.each do |assign|
+          cards << assign.card
+        end
+      return cards
+      end
+    end
   end
 
   # given an attribute and cards

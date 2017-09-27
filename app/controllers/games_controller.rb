@@ -38,8 +38,17 @@ class GamesController < ApplicationController
     if @game.update_board
       redirect_to game_path(@game)
     else
-      flash[:alert] = "There are valid sets on the board. Keep trying!"
+      flash[:alert] = "There are valid sets on the board. Keep trying! Here's a hint:"
       redirect_to game_path(@game)
+    end
+  end
+
+  def give_hint
+    @game = Game.find(params[:game_id])
+
+    respond_to do |format|
+      format.html { redirect_to game_path(@game) }
+      format.js {@combo = @game.hint}
     end
   end
 end
